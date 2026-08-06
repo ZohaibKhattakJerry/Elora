@@ -151,7 +151,7 @@
       font-family: var(--font-base);
       color: var(--text-main);
       background: #ffffff;
-      overflow-x: hidden;
+      overflow-x: clip;
       width: 100%;
       max-width: 100vw;
       position: relative;
@@ -860,7 +860,9 @@
     }
 
     .gallery-container {
-      position: relative;
+      position: sticky;
+      top: 100px;
+      z-index: 10;
     }
 
     /* FIX: True crossfade image wrapper & Lightbox trigger (Part 2 & 6) */
@@ -1087,8 +1089,7 @@
     /* RIGHT COLUMN PRODUCT INFO */
     .product-info-box {
       padding: 5px 0;
-      position: sticky;
-      top: 120px;
+      /* Sticky removed so it scrolls naturally */
     }
 
     .brand-subhead {
