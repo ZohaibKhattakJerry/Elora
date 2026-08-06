@@ -2375,7 +2375,7 @@
     .checkout-modal {
       background: #ffffff;
       width: 100%;
-      max-width: 680px;
+      max-width: 720px;
       border-radius: 22px;
       box-shadow: 0 30px 90px rgba(0, 0, 0, 0.42);
       overflow: hidden;
@@ -2392,7 +2392,7 @@
       transform: translateY(0) scale(1);
     }
 
-    @media (max-width: 680px), (max-height: 600px) {
+    @media (max-width: 720px), (max-height: 600px) {
       .checkout-modal {
         margin: auto 0 0 0; 
         max-width: 100%;
@@ -4018,17 +4018,10 @@
         <form id="order-form" onsubmit="submitPakistanOrder(event)" novalidate>
           <div class="cod-badge-box">
             <span><i class="fa fa-truck"></i> Payment Method:</span>
-            <span>CASH ON DELIVERY (COD) • PAY AT YOUR DOORSTEP</span>
+            <span>Cash on Delivery (COD) • Pay at your doorstep</span>
           </div>
 
-          <!-- FIX: One-Tap Order Bump inside Modal (AOV Lift - Part 3) -->
-          <label class="order-bump-box" id="order-bump-label">
-            <input type="checkbox" id="order-bump-checkbox" onchange="toggleOrderBump()">
-            <div>
-              <div style="font-weight:700;font-size:14px;color:var(--text-main);">🔥 Add an ELÓRA™ Heat-Resistant Travel Pouch (+Rs. 300)</div>
-              <div style="font-size:12px;color:#666;">Protect your styler and cord while traveling. 50% Off add-on special.</div>
-            </div>
-          </label>
+
 
           <!-- FIX: Side-by-side Name and Phone on Desktop -->
           <div style="display:flex;gap:12px;flex-wrap:wrap;">
@@ -4104,10 +4097,10 @@
         <!-- 13C. CELEBRATORY ORDER SUCCESS SCREEN WITH CONFETTI & WHATSAPP DEEP-LINK (Part 3) -->
         <div class="success-receipt-screen" id="success-receipt" style="display:none;text-align:center;padding:10px 5px;">
           <div class="success-icon-big" style="margin:0 auto 16px;"><i class="fa fa-check"></i></div>
-          <h2 style="font-family:var(--font-custom);font-size:28px;color:var(--text-main);margin-bottom:6px;">Order Placed Successfully! 🎉</h2>
+          <h2 style="font-family:var(--font-custom);font-size:28px;color:var(--text-main);margin-bottom:6px;">Order Placed Successfully!</h2>
           <p class="urdu-text" style="font-size:18px;color:#166534;font-weight:700;margin-bottom:12px;">آپ کا آرڈر کامیابی سے موصول ہو گیا ہے</p>
           <p style="color:#555;font-size:15px;margin-bottom:22px;line-height:1.6;">
-            Thank you for shopping with <strong>ELÓRA™ Official Pakistan Store</strong>. We have recorded your COD order and our dispatch team will process it immediately.
+            Your COD order has been recorded and our dispatch team will process it shortly.
           </p>
           <div style="background:#fff5f8;border:1px solid #ffdce9;padding:20px;border-radius:14px;margin-bottom:24px;text-align:left;box-shadow:0 4px 15px rgba(255,92,138,0.08);">
             <div style="display:flex;justify-content:space-between;margin-bottom:10px;">
@@ -4135,7 +4128,7 @@
           <!-- FIX: WhatsApp order verification deep link (Part 3) -->
           <a href="javascript:void(0)" onclick="confirmSuccessOnWhatsApp()" class="btn-submit-order" style="background:#25D366;margin-bottom:14px;text-decoration:none;box-shadow:0 6px 20px rgba(37,211,102,0.35);">
             <i class="fab fa-whatsapp" style="font-size:24px;"></i>
-            <span>CONFIRM ON WHATSAPP (INSTANT DISPATCH)</span>
+            <span>Confirm on WhatsApp (Instant Dispatch)</span>
           </a>
 
           <button type="button" class="hero-secondary-btn" onclick="closeCheckoutModal()" style="width:100%;justify-content:center;">
@@ -4536,12 +4529,10 @@
     }
 
     // 6. FIX: Accessible COD Checkout Modal with Inline Validation, Order Bump & Error Fallback (Part 1, #1 & Part 3)
-    let orderBumpActive = false;
-
+    // 6. FIX: Accessible COD Checkout Modal with Inline Validation, Order Bump & Error Fallback (Part 1, #1 & Part 3)
     function openCheckoutModal(mode) {
       const qty = parseInt(document.getElementById('qty-input').value, 10) || 1;
       let totalPKR = selectedBundlePrice;
-      if (orderBumpActive) totalPKR += 300;
 
       document.getElementById('modal-qty-val').textContent = qty;
       document.getElementById('modal-total-pkr').textContent = `Rs. ${totalPKR.toLocaleString('en-US')} PKR`;
@@ -4572,21 +4563,12 @@
       updateQty(change);
       const qty = parseInt(document.getElementById('qty-input').value, 10) || 1;
       let totalPKR = selectedBundlePrice;
-      if (orderBumpActive) totalPKR += 300;
       document.getElementById('modal-qty-val').textContent = qty;
       document.getElementById('modal-total-pkr').textContent = `Rs. ${totalPKR.toLocaleString('en-US')} PKR`;
       document.getElementById('btn-submit-text').textContent = `CONFIRM & PLACE ORDER • RS. ${totalPKR.toLocaleString('en-US')} PKR`;
     }
 
-    function toggleOrderBump() {
-      const cb = document.getElementById('order-bump-checkbox');
-      orderBumpActive = cb.checked;
-      const qty = parseInt(document.getElementById('qty-input').value, 10) || 1;
-      let totalPKR = selectedBundlePrice;
-      if (orderBumpActive) totalPKR += 300;
-      document.getElementById('modal-total-pkr').textContent = `Rs. ${totalPKR.toLocaleString('en-US')} PKR`;
-      document.getElementById('btn-submit-text').textContent = `CONFIRM & PLACE ORDER • RS. ${totalPKR.toLocaleString('en-US')} PKR`;
-    }
+
 
     // FIX: Estimated delivery window based on selected major Pakistani City (Part 3)
     function updateDeliveryEstimate() {
@@ -4661,7 +4643,6 @@
 
       const qty = parseInt(document.getElementById('qty-input').value, 10) || 1;
       let totalPKR = selectedBundlePrice;
-      if (orderBumpActive) totalPKR += 300;
       const totalStr = totalPKR.toLocaleString('en-US');
 
       let bundleName = "1x Solo Styler";
@@ -4685,8 +4666,7 @@
         phone: phone,
         city: city,
         postal: postal,
-        address: address,
-        bump: orderBumpActive ? 'Yes (+Rs. 300 Travel Pouch)' : 'No'
+        address: address
       };
 
       // Save order to LocalStorage for the Track Order feature to work
@@ -4717,7 +4697,6 @@
           productName: "ELÓRA™ 4-in-1 Blow Hair Dryer",
           bundle: bundleName,
           quantity: qty,
-          orderBump: orderBumpActive ? "Yes (+Rs. 300)" : "No",
           totalPayable: totalStr,
           trackingNumber: trackingNumber
         });
@@ -4850,7 +4829,7 @@
       if (lastOrderData.postal) {
         addrStr += ` (Postal: ${lastOrderData.postal})`;
       }
-      const waMsg = `Hello ELÓRA Team! I want to confirm my COD Order:\n\n*Reference:* ${lastOrderData.ref}\n*Name:* ${lastOrderData.name}\n*Phone:* ${lastOrderData.phone}\n*City:* ${lastOrderData.city}\n*Address:* ${addrStr}\n*Quantity:* ${lastOrderData.qty} Unit(s)\n*Travel Pouch:* ${lastOrderData.bump}\n*Total Payable:* Rs. ${lastOrderData.total} PKR (COD)\n\nPlease dispatch!`;
+      const waMsg = `Hello ELÓRA Team! I want to confirm my COD Order:\n\n*Reference:* ${lastOrderData.ref}\n*Name:* ${lastOrderData.name}\n*Phone:* ${lastOrderData.phone}\n*City:* ${lastOrderData.city}\n*Address:* ${addrStr}\n*Product:* ELÓRA™ 4-in-1 Hot Air Styler\n*Quantity:* ${lastOrderData.qty} Unit(s)\n*Total Payable:* Rs. ${lastOrderData.total} PKR (COD)\n\nPlease dispatch!`;
       window.open(`https://wa.me/923271246810?text=${encodeURIComponent(waMsg)}`, '_blank');
     }
 
