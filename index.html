@@ -1573,6 +1573,18 @@
       border-bottom: none;
     }
 
+    .comp-table tbody tr {
+      transition: var(--transition);
+    }
+
+    .comp-table tbody tr:hover {
+      background-color: #fafafa;
+    }
+
+    .comp-table tbody tr:hover td.highlight-col {
+      background-color: #ffe6f0;
+    }
+
     .comp-check {
       color: #22c55e;
       font-size: 18px;
@@ -3065,7 +3077,7 @@
 
           <!-- DESCRIPTION -->
           <p class="hero-main-desc hero-stagger-3">
-            The official <strong>ELÓRA™ 4-in-1 Hot Air Styler</strong> — dry, volumize, straighten &amp; curl with Ceramic Tourmaline Technology. Zero heat damage, 3× more body.
+            Dry, volumize, straighten, and curl with the official <strong>ELÓRA™ 4-in-1 Styler</strong>. Experience zero heat damage and 3x more body in half the time.
           </p>
 
           <!-- CTA BUTTONS -->
@@ -3218,14 +3230,14 @@
             <span>ELÓRA HAIR &amp; BEAUTY PAKISTAN</span>
           </div>
 
-          <h1 class="product-headline">ELÓRA™ 4-in-1 Blow Hair Dryer - Volumizer Brush, Straightening &amp; Curl</h1>
+          <h1 class="product-headline">ELÓRA™ 4-in-1 Hot Air Styler</h1>
 
           <!-- RATINGS -->
           <div class="rating-row" onclick="jumpToTab('tab-reviews', 'reviews')">
             <div class="stars-wrap">
               <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
             </div>
-            <span class="rating-count">4.9 / 5.0 (<span id="stat-review-num">1,428</span> Verified Customer Reviews)</span>
+            <span class="rating-count">4.9 / 5.0 (<span id="stat-review-num">1,428</span> Verified Reviews)</span>
           </div>
 
           <!-- FIX: Real Low-Stock Scarcity Indicator & Live Order Proof (Part 2) -->
@@ -3250,7 +3262,7 @@
           </div>
 
           <p class="short-desc">
-            The ELÓRA™ 4-In-1 Hot Air Brush offers efficient styling in one easy step. Featuring an all-in-one unique combination of brush, blow dryer, straightener, and curling iron that helps you create salon-professional results in minutes. Produces <strong>3x more body and volume</strong> while reducing drying time by up to 70%.
+            The ELÓRA™ 4-In-1 Hot Air Styler dries, volumizes, straightens, and curls in one easy step. Create salon-professional results in minutes with <strong>3x more volume</strong> and 70% faster drying time.
           </p>
 
           <!-- FIX: Tiered Quantity / Bundle Pricing Selector Cards (AOV conversion lever - Part 2) -->
@@ -3729,7 +3741,7 @@
         
         <div class="faq-item" onclick="toggleFaq(this)">
           <div class="faq-question">
-            <span>1. How does Cash on Delivery (COD) work across Pakistan?</span>
+            <span>How does Cash on Delivery (COD) work across Pakistan?</span>
             <i class="fa fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
@@ -3741,7 +3753,7 @@
 
         <div class="faq-item" onclick="toggleFaq(this)">
           <div class="faq-question">
-            <span>2. What is the difference between genuine ELÓRA™ and market copies?</span>
+            <span>What is the difference between genuine ELÓRA™ and market copies?</span>
             <i class="fa fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
@@ -3753,7 +3765,7 @@
 
         <div class="faq-item" onclick="toggleFaq(this)">
           <div class="faq-question">
-            <span>3. Will this styler work on thick, coarse, or frizzy Pakistani hair?</span>
+            <span>Will this styler work on thick, coarse, or frizzy Pakistani hair?</span>
             <i class="fa fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
@@ -3766,7 +3778,7 @@
         <!-- FIX: Added 3 new objection-handling QA items (Part 2) -->
         <div class="faq-item" onclick="toggleFaq(this)">
           <div class="faq-question">
-            <span>4. Can I pay online instead of Cash on Delivery (COD)?</span>
+            <span>Can I pay online instead of Cash on Delivery (COD)?</span>
             <i class="fa fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
@@ -3778,7 +3790,7 @@
 
         <div class="faq-item" onclick="toggleFaq(this)">
           <div class="faq-question">
-            <span>5. Is it safe for color-treated or keratin-treated hair?</span>
+            <span>Is it safe for color-treated or keratin-treated hair?</span>
             <i class="fa fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
@@ -3790,7 +3802,7 @@
 
         <div class="faq-item" onclick="toggleFaq(this)">
           <div class="faq-question">
-            <span>6. How do I track my order after purchasing?</span>
+            <span>How do I track my order after purchasing?</span>
             <i class="fa fa-chevron-down"></i>
           </div>
           <div class="faq-answer">
@@ -3990,17 +4002,20 @@
             </div>
           </label>
 
-          <div class="form-group">
-            <label for="cust-name">Full Name *</label>
-            <input type="text" id="cust-name" name="Customer_Name" class="form-input" placeholder="Enter your full name" required>
-            <div class="inline-error-msg" id="err-cust-name">Please enter your full name</div>
-          </div>
+          <!-- FIX: Side-by-side Name and Phone on Desktop -->
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <div class="form-group" style="flex:1;min-width:240px;">
+              <label for="cust-name">Full Name *</label>
+              <input type="text" id="cust-name" name="Customer_Name" class="form-input" placeholder="Enter your full name" required>
+              <div class="inline-error-msg" id="err-cust-name">Please enter your full name</div>
+            </div>
 
-          <!-- FIX: Validating Pakistani Mobile Number Format (03xx-xxxxxxx - Part 3) -->
-          <div class="form-group">
-            <label for="cust-phone">WhatsApp / Mobile Number * <span style="font-size:12px;color:#666;font-weight:normal;">(Format: 03XX-XXXXXXX)</span></label>
-            <input type="tel" id="cust-phone" name="Phone_Number" class="form-input" placeholder="e.g. 0327-1246810" required>
-            <div class="inline-error-msg" id="err-cust-phone">Please enter a valid 11-digit Pakistani mobile number starting with 03</div>
+            <!-- FIX: Validating Pakistani Mobile Number Format (03xx-xxxxxxx - Part 3) -->
+            <div class="form-group" style="flex:1;min-width:240px;">
+              <label for="cust-phone">WhatsApp / Mobile Number * <span style="font-size:11px;color:#666;font-weight:normal;">(Format: 03XX-XXXXXXX)</span></label>
+              <input type="tel" id="cust-phone" name="Phone_Number" class="form-input" placeholder="e.g. 0327-1246810" required>
+              <div class="inline-error-msg" id="err-cust-phone">Please enter a valid Pakistani mobile number</div>
+            </div>
           </div>
 
           <!-- FIX: Manual City Text Input & Optional Postal Code -->
