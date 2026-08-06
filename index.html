@@ -147,11 +147,14 @@
       scroll-behavior: smooth;
     }
 
-    body {
+    html, body {
       font-family: var(--font-base);
       color: var(--text-main);
       background: #ffffff;
       overflow-x: hidden;
+      width: 100%;
+      max-width: 100vw;
+      position: relative;
       -webkit-font-smoothing: antialiased;
       line-height: 1.65;
     }
@@ -2607,6 +2610,10 @@
       .container-fluid {
         padding: 0 20px;
       }
+      .comparison-table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
       .nav-menu {
         display: none;
       }
@@ -2725,9 +2732,12 @@
         display: none; 
       }
       .hero-main-title {
-        font-size: 28px; 
+        font-size: clamp(28px, 8vw, 36px); 
         line-height: 1.2;
         margin-bottom: var(--space-sm);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
       }
       .hero-main-desc {
         font-size: 15px; 
