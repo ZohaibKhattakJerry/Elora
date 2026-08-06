@@ -102,7 +102,7 @@
 
   <style>
     :root {
-      /* FIX: Reserved #ff5c8a for decorative highlights; using deep pink (#c40062 / #b30058) for resting primary buttons to pass WCAG AA 4.5:1 contrast (Part 1, #6) */
+      /* Theme Colors */
       --primary: #ff5c8a;
       --primary-resting: #b30058;
       --primary-dark: #8c0044;
@@ -112,12 +112,27 @@
       --border-color: #eaeaea;
       --text-main: #1d1d1d;
       --text-muted: #555555;
+      
+      /* Spacing System */
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+
+      /* Radii & Transitions */
       --radius: 16px;
       --radius-pill: 60px;
       --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      
+      /* Shadows */
       --shadow-sm: 0 4px 18px rgba(0, 0, 0, 0.04);
       --shadow-md: 0 14px 40px rgba(0, 0, 0, 0.08);
       --shadow-lg: 0 25px 70px rgba(255, 92, 138, 0.22);
+      
+      /* Typography */
       --font-base: 'Jost', sans-serif;
       --font-custom: 'Playfair Display', serif;
     }
@@ -1502,11 +1517,13 @@
     /* FIX: Added overflow-x: auto so table scrolls cleanly on mobile devices without crushing (Part 2) */
     .comparison-table-wrap {
       max-width: 960px;
-      margin: 45px auto 0;
+      margin: var(--space-2xl) auto 0;
       background: #ffffff;
       border-radius: 16px;
       border: 1px solid var(--border-color);
       box-shadow: var(--shadow-sm);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     .comp-table {
@@ -2159,7 +2176,7 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.85); /* More transparent for better blur */
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-top: 1px solid var(--border-color);
@@ -2353,23 +2370,24 @@
 
     @media (max-width: 680px), (max-height: 600px) {
       .checkout-modal {
-        margin: auto 0 0 0; /* Align to bottom on mobile */
+        margin: auto 0 0 0; 
         max-width: 100%;
-        border-radius: 28px 28px 0 0; /* Round only top corners */
-        max-height: 85vh; /* Safer for iOS Safari */
+        border-radius: 28px 28px 0 0; 
+        max-height: 90vh; /* Allow a bit more height on mobile */
         transform: translateY(100%);
+        padding-bottom: env(safe-area-inset-bottom); /* Fix for iOS home bar */
       }
       .modal-backdrop.show .checkout-modal {
         transform: translateY(0);
       }
       .checkout-modal-header {
-        padding: 16px 20px;
+        padding: var(--space-lg) var(--space-lg) var(--space-md);
       }
       .checkout-modal-header h3 {
-        font-size: 18px;
+        font-size: 20px;
       }
       .checkout-modal-body {
-        padding: 20px;
+        padding: 0 var(--space-lg) var(--space-lg);
       }
     }
 
@@ -2451,16 +2469,18 @@
       width: 100%;
       padding: 14px 18px;
       border: 2px solid var(--border-color);
-      border-radius: 10px;
-      font-size: 15px;
+      border-radius: 12px;
+      font-size: 16px; /* 16px minimum prevents iOS zoom */
       font-family: var(--font-base);
       color: var(--text-main);
+      background: #fafafa;
       outline: none;
       transition: var(--transition);
     }
 
     .form-input:focus {
       border-color: var(--primary-resting);
+      background: #ffffff;
       box-shadow: 0 0 0 4px rgba(179, 0, 88, 0.12);
     }
 
@@ -2587,13 +2607,17 @@
 
     @media (max-width: 991px) {
       .container-fluid {
-        padding: 0 28px;
+        padding: 0 20px;
       }
       .nav-menu {
         display: none;
       }
       .menu-trigger {
         display: flex;
+        margin-left: 10px;
+      }
+      .track-order-btn, .currency-badge {
+        display: none !important; /* Hide on mobile for a clean, premium header */
       }
       .site-header {
         position: absolute;
@@ -2652,8 +2676,8 @@
       /* ── PHONE HERO (STACKED LAYOUT) ────────────────────
          Image sits prominently at the top, text flows beautifully underneath. */
       .hero-section {
-        background: #fdf2f5;
-        padding-bottom: 20px;
+        background: var(--accent-light);
+        padding-bottom: var(--space-xl);
       }
       .hero-inner-ratio {
         display: flex;
@@ -2664,24 +2688,23 @@
       .hero-bg-parallax {
         position: relative;
         width: 100%;
-        padding-top: 95vw; /* Almost square, perfect for mobile */
-        background-position: 85% bottom !important; /* Focuses nicely on the model/product */
-        background-size: 140% !important; /* Zooms in to remove empty left space */
-        box-shadow: 0 4px 20px rgba(179,0,88,0.08); /* Subtle premium shadow */
+        padding-top: 90vw; /* Perfect aspect ratio for mobile model */
+        background-position: 80% bottom !important; 
+        background-size: 130% !important; 
+        box-shadow: var(--shadow-sm); 
       }
       .hero-bg-parallax::after {
-        display: none; /* Remove gradient since text is no longer overlaying */
+        display: none; 
       }
       .hero-content-wrap {
         position: relative;
-        padding: 30px 20px 10px;
-        align-items: center; /* Center content on mobile */
+        padding: var(--space-lg) var(--space-md) var(--space-sm);
+        align-items: center; 
         text-align: center;
       }
       .hero-content-left {
         width: 100%;
         max-width: 100%;
-        min-width: unset;
         padding: 0;
         display: flex;
         flex-direction: column;
@@ -2689,50 +2712,51 @@
       }
       .hero-subtitle-row {
         justify-content: center;
-        margin-bottom: 12px;
+        margin-bottom: var(--space-sm);
       }
       .hero-subtitle-line {
-        display: none; /* Remove horizontal line on mobile for cleaner look */
+        display: none; 
       }
       .hero-main-title {
-        font-size: 30px; /* Clean, premium sizing */
-        line-height: 1.25;
-        margin-bottom: 14px;
+        font-size: 28px; 
+        line-height: 1.2;
+        margin-bottom: var(--space-sm);
       }
       .hero-main-desc {
         font-size: 15px; 
-        line-height: 1.5;
-        color: #555;
-        margin-bottom: 26px;
-        max-width: 90%; /* Keep line length readable */
+        line-height: 1.6;
+        color: var(--text-muted);
+        margin-bottom: var(--space-lg);
+        max-width: 95%; 
       }
       .hero-actions-row {
-        flex-direction: column; /* Stack buttons nicely on mobile */
+        flex-direction: column; 
         width: 100%;
-        gap: 12px;
-        margin-bottom: 22px;
+        gap: var(--space-sm);
+        margin-bottom: var(--space-lg);
       }
       .hero-cta-btn, .hero-secondary-btn {
         width: 100%;
-        padding: 16px 20px; /* Fat finger friendly */
-        font-size: 15.5px;
+        min-height: 54px; /* Fat finger friendly */
+        font-size: 16px;
         justify-content: center;
       }
       .hero-trust-strip {
-        gap: 8px 14px;
+        gap: var(--space-sm) var(--space-md);
         justify-content: center;
         width: 100%;
-        padding-top: 18px;
-        border-top: 1px solid rgba(0,0,0,0.06);
+        padding-top: var(--space-md);
+        border-top: 1px solid var(--border-color);
       }
       .hero-trust-item {
-        font-size: 11.5px;
+        font-size: 12px;
+        font-weight: 500;
       }
     }
 
     @media (max-width: 768px) {
       .value-bar-section {
-        padding: 25px 0; /* Better breathing room on mobile */
+        padding: var(--space-lg) 0;
       }
       .comparison-section {
         padding: 35px 0;
