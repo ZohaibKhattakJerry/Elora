@@ -2312,16 +2312,16 @@
 
     @media (max-width: 768px) {
       body {
-        padding-bottom: 68px; /* Slimmer bar */
+        padding-bottom: 74px; /* Ensure content is not hidden by the sticky bar */
       }
       .mobile-sticky-bar {
         display: flex;
-        padding: 8px 15px; /* Slimmer padding */
+        padding: 6px 12px; /* Slim padding */
         min-height: 60px;
       }
       .mobile-bar-btn {
-        height: 40px;
-        font-size: 13px;
+        height: 48px; /* Apple HIG standard for touch targets */
+        font-size: 14px;
       }
       .mobile-bar-price {
         font-size: 16px;
@@ -2395,6 +2395,7 @@
       .checkout-modal {
         margin: auto 0 0 0; 
         max-width: 100%;
+        width: 100%;
         border-radius: 28px 28px 0 0; 
         max-height: 90vh; /* Allow a bit more height on mobile */
         transform: translateY(100%);
@@ -2404,13 +2405,26 @@
         transform: translateY(0);
       }
       .checkout-modal-header {
-        padding: var(--space-lg) var(--space-lg) var(--space-md);
+        padding: var(--space-lg) var(--space-md) var(--space-sm);
       }
       .checkout-modal-header h3 {
         font-size: 20px;
       }
       .checkout-modal-body {
-        padding: 0 var(--space-lg) var(--space-lg);
+        padding: 0 var(--space-md) var(--space-lg);
+      }
+      .form-input {
+        padding: 16px;
+        font-size: 16px !important; /* Force 16px to prevent iOS auto-zoom */
+      }
+      .success-icon-big {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+      .success-receipt-screen h2 {
+        font-size: 24px !important;
       }
     }
 
@@ -2704,7 +2718,7 @@
          Image sits prominently at the top, text flows beautifully underneath. */
       .hero-section {
         background: var(--accent-light);
-        padding-bottom: var(--space-xl);
+        padding-bottom: var(--space-lg);
       }
       .hero-inner-ratio {
         display: flex;
@@ -2716,8 +2730,8 @@
       .hero-bg-parallax {
         position: relative;
         width: 100%;
-        padding-top: 90vw; /* Perfect aspect ratio for mobile model */
-        background-position: right center !important; 
+        padding-top: 110vw; /* Taller aspect ratio for perfect mobile framing */
+        background-position: center bottom !important; 
         background-size: cover !important; 
         box-shadow: var(--shadow-sm); 
       }
@@ -2777,7 +2791,7 @@
       }
       .hero-cta-btn, .hero-secondary-btn {
         width: 100%;
-        min-height: 54px; /* Fat finger friendly */
+        min-height: 56px; /* Fat finger friendly, standard size */
         font-size: 16px;
         justify-content: center;
       }
@@ -2871,6 +2885,18 @@
       }
       .highlights-grid {
         grid-template-columns: 1fr;
+      }
+      .product-showcase-section {
+        padding: 40px 0;
+      }
+      .product-headline {
+        font-size: 24px;
+        margin-bottom: 12px;
+      }
+      .scarcity-strip-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
       }
       .qty-and-cart-row {
         flex-direction: column;
