@@ -723,6 +723,48 @@
       font-size: clamp(10px, 0.9vw, 13px);
     }
 
+    /* ── DESKTOP-SPECIFIC PREMIUM HERO REFINEMENTS ───────────────── */
+    @media (min-width: 992px) {
+      .hero-content-left {
+        width: 48%; /* Better balance against the right image */
+        max-width: 620px; /* Room to breathe */
+      }
+      .hero-subtitle-row {
+        margin-bottom: 14px;
+      }
+      .hero-subtitle-text {
+        font-size: clamp(11px, 1vw, 13px);
+        letter-spacing: 2px;
+      }
+      .hero-main-title {
+        font-size: clamp(40px, 4.4vw, 60px); /* Stronger presence */
+        line-height: 1.1;
+        margin-bottom: clamp(16px, 1.4vw, 22px);
+      }
+      .hero-main-desc {
+        font-size: clamp(15px, 1.3vw, 18px);
+        line-height: 1.75;
+        margin-bottom: clamp(24px, 2.2vw, 36px);
+      }
+      .hero-cta-btn, .hero-secondary-btn {
+        padding: clamp(16px, 1.4vw, 22px) clamp(32px, 3vw, 48px);
+        font-size: clamp(15px, 1.25vw, 18px);
+      }
+      .hero-actions-row {
+        gap: clamp(12px, 1.3vw, 20px);
+        margin-bottom: clamp(18px, 1.8vw, 26px);
+      }
+      .hero-trust-strip {
+        gap: clamp(14px, 1.6vw, 24px);
+      }
+      .hero-trust-item {
+        font-size: clamp(12px, 1.1vw, 14.5px);
+      }
+      .hero-trust-item i {
+        font-size: clamp(14px, 1.2vw, 17px);
+      }
+    }
+
     /* ── SCROLL-DOWN INDICATOR ────────────────────────── */
     .scroll-down-indicator {
       position: absolute;
