@@ -509,17 +509,17 @@
     .hero-inner-ratio {
       position: relative;
       width: 100%;
-      height: min(56.25vw, 85vh);
+      height: min(43.75vw, 85vh); /* 448/1024 exact aspect ratio */
       min-height: 340px;
     }
 
     /* ── ULTRA-HD BACKGROUND IMAGE ─────────────────────────
-       background-size: cover fills the container perfectly without distortion.
-       We align it to bottom center so the stylers are always visible. */
+       background-size: contain ensures zero cropping as requested.
+       We align it to right center so the model is always perfectly visible. */
     .hero-bg-parallax {
       position: absolute;
       inset: 0;
-      background: url('./hero-slide-1.png') no-repeat center bottom / cover;
+      background: url('./hero-slide-new.png') no-repeat right center / contain;
       z-index: 1;
       pointer-events: none;
     }
@@ -2705,8 +2705,8 @@
         position: relative;
         width: 100%;
         padding-top: 90vw; /* Perfect aspect ratio for mobile model */
-        background-position: 80% bottom !important; 
-        background-size: 130% !important; 
+        background-position: right center !important; 
+        background-size: cover !important; 
         box-shadow: var(--shadow-sm); 
       }
       .hero-bg-parallax::after {
