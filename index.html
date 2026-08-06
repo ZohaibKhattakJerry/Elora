@@ -1522,8 +1522,6 @@
       border-radius: 16px;
       border: 1px solid var(--border-color);
       box-shadow: var(--shadow-sm);
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
     }
 
     .comp-table {
@@ -2304,24 +2302,24 @@
         font-size: 16px;
       }
       .whatsapp-live-chat {
-        bottom: 76px; /* Sits right above the slimmer bar */
-        right: 12px;
+        bottom: 95px; /* Sit securely above sticky bar and its box-shadow */
+        right: 15px;
         left: auto;
         padding: 13px 14px;
-        border-radius: 50%; /* Make it a circular bubble */
+        border-radius: 50%; 
       }
       .whatsapp-live-chat span {
-        display: none; /* Hide text to save huge screen space */
+        display: none; 
       }
       .whatsapp-live-chat i {
         margin: 0;
         font-size: 24px;
       }
       #back-to-top {
-        bottom: 136px; /* Stacked securely above WhatsApp */
-        right: 12px;
-        width: 40px;
-        height: 40px;
+        bottom: 160px; /* Stacked securely above WhatsApp */
+        right: 15px;
+        width: 44px;
+        height: 44px;
       }
     }
 
@@ -2698,17 +2696,26 @@
       }
       .hero-content-wrap {
         position: relative;
+        inset: auto;
         padding: var(--space-lg) var(--space-md) var(--space-sm);
+        display: flex;
+        flex-direction: column;
         align-items: center; 
+        justify-content: center;
         text-align: center;
+        width: 100%;
+        box-sizing: border-box;
       }
       .hero-content-left {
         width: 100%;
         max-width: 100%;
+        min-width: 0;
         padding: 0;
+        margin: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
+        box-sizing: border-box;
       }
       .hero-subtitle-row {
         justify-content: center;
@@ -2833,18 +2840,18 @@
         grid-template-columns: 1fr;
       }
       .qty-and-cart-row {
-        flex-direction: row;
-        align-items: center;
+        flex-direction: column;
+        align-items: stretch;
         gap: 12px;
       }
       .qty-picker {
-        width: 110px;
+        width: 100%;
         justify-content: space-between;
       }
       .btn-add-cart {
-        flex: 1;
-        font-size: 14px;
-        padding: 0 10px;
+        width: 100%;
+        font-size: 15px;
+        padding: 16px;
       }
       .footer-grid {
         grid-template-columns: 1fr;
