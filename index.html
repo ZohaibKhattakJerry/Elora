@@ -249,6 +249,8 @@
 
     .container-fluid {
       width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
       padding: 0 55px;
     }
 
@@ -491,11 +493,13 @@
     .hero-section {
       position: relative;
       width: 100%;
+      max-width: 1920px;
+      margin: 0 auto;
       overflow: hidden;
       background: #fdf2f5;
       display: block;
       padding: 0;
-      margin: 0;
+      margin-bottom: 80px; /* Add desktop breathing room */
     }
 
     /* ── ASPECT-RATIO SHELL ────────────────────────────────
@@ -505,8 +509,8 @@
     .hero-inner-ratio {
       position: relative;
       width: 100%;
-      padding-top: 56.25%;   /* = 576/1024 × 100 */
-      min-height: 340px;     /* floor so it's never tiny  */
+      height: min(56.25vw, 85vh);
+      min-height: 340px;
     }
 
     /* ── ULTRA-HD BACKGROUND IMAGE ─────────────────────────
@@ -649,12 +653,12 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 12px;
       background: var(--primary-resting);
       color: #ffffff;
-      padding: 12px 24px;
+      padding: clamp(14px, 1.2vw, 18px) clamp(28px, 2.5vw, 40px);
       border-radius: var(--radius-pill);
-      font-size: 13.5px;
+      font-size: clamp(14px, 1.1vw, 16px);
       font-weight: 700;
       letter-spacing: 0.3px;
       white-space: nowrap;
@@ -683,13 +687,13 @@
     .hero-secondary-btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 12px 24px;
+      gap: 10px;
+      padding: clamp(14px, 1.2vw, 18px) clamp(28px, 2.5vw, 40px);
       border-radius: var(--radius-pill);
       border: 1.5px solid #25D366;
       color: #166534;
       background: rgba(240, 253, 244, 0.95);
-      font-size: 13.5px;
+      font-size: clamp(14px, 1.1vw, 16px);
       font-weight: 700;
       white-space: nowrap;
       transition: var(--transition);
@@ -813,7 +817,7 @@
        5. FEATURED STYLER SHOWCASE (GALLERY LIGHTBOX, CONTINUOUS STORY PROGRESS & BUNDLES)
        ======================================================== */
     .product-showcase-section {
-      padding: 95px 0 90px;
+      padding: 120px 0 110px;
       background: #ffffff;
     }
 
@@ -857,8 +861,7 @@
     }
 
     .gallery-container {
-      position: sticky;
-      top: 110px;
+      position: relative;
     }
 
     /* FIX: True crossfade image wrapper & Lightbox trigger (Part 2 & 6) */
@@ -872,6 +875,12 @@
       margin-bottom: 16px;
       aspect-ratio: 1 / 1;
       cursor: zoom-in;
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    
+    .main-image-wrap:hover {
+      box-shadow: 0 20px 45px rgba(0,0,0,0.1);
+      transform: translateY(-4px);
     }
 
     .main-image-wrap img {
@@ -1079,6 +1088,8 @@
     /* RIGHT COLUMN PRODUCT INFO */
     .product-info-box {
       padding: 5px 0;
+      position: sticky;
+      top: 120px;
     }
 
     .brand-subhead {
@@ -1511,8 +1522,8 @@
        6. WHY CHOOSE ELÓRA vs. CHEAP COPIES (RESPONSIVE TABLE + STAGGERED REVEAL) (Part 2)
        ======================================================== */
     .comparison-section {
-      padding: 95px 0;
-      background: #fafafa;
+      padding: 120px 0;
+      background: #fdfafb;
       border-top: 1px solid var(--border-color);
       border-bottom: 1px solid var(--border-color);
     }
@@ -1579,7 +1590,7 @@
        7. DETAILED PRODUCT TABS (DRAGGABLE BEFORE/AFTER SLIDER + AUTHENTICITY CHARTER) (Part 2)
        ======================================================== */
     .product-tabs-section {
-      padding: 90px 0;
+      padding: 120px 0;
       background: #ffffff;
     }
 
@@ -1832,8 +1843,8 @@
        8. CUSTOMER REVIEWS (COUNT-UP STATS + PAGINATION / LOAD MORE) (Part 2 & 6)
        ======================================================== */
     .reviews-section {
-      padding: 95px 0;
-      background: #fafafa;
+      padding: 120px 0;
+      background: #fcfcfc;
       border-top: 1px solid var(--border-color);
     }
 
@@ -1934,7 +1945,7 @@
        9. FREQUENTLY ASKED QUESTIONS (JS-MEASURED SCROLLHEIGHT ACCORDION + 3 OBJECTION QA) (Part 1, #11 & Part 2)
        ======================================================== */
     .faq-section {
-      padding: 95px 0;
+      padding: 120px 0;
       background: #ffffff;
     }
 
