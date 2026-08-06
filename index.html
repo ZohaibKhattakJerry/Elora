@@ -3123,7 +3123,8 @@
           <div class="hero-trust-strip hero-stagger-5">
             <span class="hero-trust-item"><i class="fa fa-check-circle" style="color:#22c55e;"></i>&nbsp;Free COD</span>
             <span class="hero-trust-item"><i class="fa fa-shield-alt" style="color:#22c55e;"></i>&nbsp;30-Day Guarantee</span>
-            <span class="hero-trust-item"><i class="fa fa-star" style="color:#f59e0b;"></i>&nbsp;4.9/5 (1,428)</span>
+            <span class="hero-trust-item"><i class="fa fa-star" style="color:#f59e0b;"></i>&nbsp;Verified Rating</span>
+            <span class="hero-trust-item"><i class="fa fa-headset" style="color:#0ea5e9;"></i>&nbsp;Fast Support</span>
           </div>
 
         </div>
@@ -4861,7 +4862,7 @@
     // FIX: Post-purchase WhatsApp confirmation deep-link (Part 3)
     function confirmSuccessOnWhatsApp() {
       if (!lastOrderData) return;
-      const waMsg = `Hello ELÓRA Team! I just placed COD Order *${lastOrderData.ref}* on your website for Rs. ${lastOrderData.total} PKR. Please confirm my dispatch!`;
+      const waMsg = `Hello ELÓRA Team! I want to confirm my COD Order:\n\n*Reference:* ${lastOrderData.ref}\n*Name:* ${lastOrderData.name}\n*Product:* ELÓRA™ 4-in-1 Hot Air Styler\n*Quantity:* ${lastOrderData.qty} Unit(s)\n*Total Payable:* Rs. ${lastOrderData.total} PKR\n*City:* ${lastOrderData.city}\n*Payment Method:* COD\n\nPlease confirm my dispatch!`;
       window.open(`https://wa.me/923271246810?text=${encodeURIComponent(waMsg)}`, '_blank');
     }
 
