@@ -509,17 +509,17 @@
     .hero-inner-ratio {
       position: relative;
       width: 100%;
-      height: min(43.75vw, 85vh); /* 448/1024 exact aspect ratio */
-      min-height: 340px;
+      height: 100vh; /* Auto-fit to 100% of the screen height */
+      min-height: 600px;
     }
 
     /* ── ULTRA-HD BACKGROUND IMAGE ─────────────────────────
-       background-size: contain ensures zero cropping as requested.
+       background-size: cover ensures it perfectly fills the 100vh screen space.
        We align it to right center so the model is always perfectly visible. */
     .hero-bg-parallax {
       position: absolute;
       inset: 0;
-      background: url('./hero-slide-new.png') no-repeat right center / contain;
+      background: url('./hero-slide-new.png') no-repeat right center / cover;
       z-index: 1;
       pointer-events: none;
     }
@@ -2699,6 +2699,7 @@
         display: flex;
         flex-direction: column;
         padding-top: 0;
+        height: auto;
         min-height: auto;
       }
       .hero-bg-parallax {
